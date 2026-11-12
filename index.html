@@ -196,10 +196,10 @@
                 </div>
 
                 <div class="space-y-6">
-                    <!-- 姓名與學號輸入 -->
+                    <!-- 姓名輸入 -->
                     <div>
                         <label class="block text-stone-800 font-bold text-sm mb-1" for="input-student-name">
-                            <i class="fa-solid fa-pen-nib mr-1"></i> 弟子姓名與學號：
+                            <i class="fa-solid fa-pen-nib mr-1"></i> 姓名：
                         </label>
                         <input type="text" id="input-student-name" placeholder="請輸入姓名與學號（例：張小明 A123）" 
                                onkeydown="if(event.key==='Enter') startGameJourney()"
@@ -1025,7 +1025,7 @@
             const name = nameInput ? nameInput.value.trim() : '';
 
             if (!name) {
-                showCustomMessage('請先輸入弟子姓名或學號，方可踏入修仙學路！', '尚未留名', () => {
+                showCustomMessage('請先輸入姓名，方可踏入求學之路！', '尚未留名', () => {
                     if (nameInput) nameInput.focus();
                 });
                 return;
@@ -1126,7 +1126,7 @@
 
         function renderQuizQuestion() {
             const q = quizState.questions[quizState.currentQuestionIdx];
-            const chTitles = { 1: "第一章：名詞之境", 2: "第二章：動詞之谷", 3: "第三章：形容詞之峰" };
+            const chTitles = { 1: "第一章：名詞", 2: "第二章：動詞", 3: "第三章：形容詞" };
 
             document.getElementById('quiz-chapter-title').textContent = chTitles[gameState.currentChapter];
             document.getElementById('quiz-progress').textContent = `(${quizState.currentQuestionIdx + 1} / ${quizState.questions.length})`;
@@ -1216,7 +1216,7 @@
             }
         }
 
-        /* ================= 6. 第四章 降妖伏魔 (Boss PK 戰鬥) ================= */
+        /* ================= 6. 第四章 終極對決 (Boss PK 戰鬥) ================= */
         function startBossBattle() {
             bossState.playerHp = 100;
             bossState.enemyHp = 250;
@@ -1307,7 +1307,7 @@
 
                 bossState.playerHp = Math.max(0, bossState.playerHp - 25);
                 gameState.wrongRecords.push({
-                    chapter: '第四章 終極對決',
+                    chapter: '第四章 終極試煉',
                     question: q.question,
                     wrongAns: selectedOpt || '超時未答',
                     correctAns: q.answer,
@@ -1323,7 +1323,7 @@
                     if (!gameState.completedChapters.includes(4)) gameState.completedChapters.push(4);
                     gameState.statusText = "全部通關（已完成第1至4章）";
                     saveStudentProgress();
-                    showCustomMessage('少俠成功伏魔降妖，修仙大成！獲得最終勝利！', '【捷報】降妖大勝', () => {
+                    showCustomMessage('成功擊敗敵人！獲得最終勝利！', '【捷報】最終勝利', () => {
                         returnToMap();
                     });
                 }, 500);
@@ -1332,7 +1332,7 @@
                 setTimeout(() => {
                     gameState.statusText = `第4章挑戰中（最高已完成 ${gameState.completedChapters.length} 章）`;
                     saveStudentProgress();
-                    showCustomMessage('體力耗盡，妖王威力過強！請再接再厲修練詞語知識！', '【提示】挑戰失利', () => {
+                    showCustomMessage('體力耗盡，敵人威力過強！請再接再厲修練詞語知識！', '【提示】挑戰失利', () => {
                         returnToMap();
                     });
                 }, 500);
