@@ -171,7 +171,7 @@
                     <i class="fa-solid fa-scroll text-amber-600 text-base"></i> 詞語大冒險
                 </h1>
                 <div id="header-user-info" class="text-xs text-amber-200/70 hidden">
-                    少俠：<span id="header-username" class="text-amber-300 font-semibold">--</span>
+                    姓名：<span id="header-username" class="text-amber-300 font-semibold">--</span>
                 </div>
             </div>
         </div>
@@ -1057,7 +1057,7 @@
             const headerAvatar = document.getElementById('header-avatar');
             headerAvatar.dataset.triedThumb = '';
             headerAvatar.src = AVATARS[gameState.role];
-            document.getElementById('header-role-badge').textContent = gameState.role === 'male' ? '俠士' : '仙子';
+            document.getElementById('header-role-badge').textContent = gameState.role === 'male' ? '俠士' : '俠士';
             document.getElementById('header-avatar-container').classList.remove('hidden');
 
             document.getElementById('header-username').textContent = gameState.studentName;
@@ -1393,7 +1393,7 @@
 
             records[gameState.studentName] = {
                 name: gameState.studentName,
-                role: gameState.role === 'male' ? '持扇俠士' : '持琵琶仙子',
+                role: gameState.role === 'male' ? '俠士' : '俠士',
                 statusText: gameState.statusText || completedSummary,
                 completedSummary: completedSummary,
                 progress: `已通關 ${completedList.length} / 4 章`,
